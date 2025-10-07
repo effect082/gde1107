@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>강동어울림복지관 개관 1주년 기념 행사</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9ff;
+            --border-light: #f0f0f0;
+            --white: white;
+            --error: #dc3545;
+            --success-bg: #d4edda;
+            --success-text: #155724;
+            --warning-bg: #fff3cd;
+            --warning-text: #856404;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and main container styling for full height and centering */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            min-height: 100vh;
+            flex-grow: 1;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative; /* For modal positioning */
+        }
+
+        /* Top Introduction Section */
+        .top-intro {
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .top-intro h1 {
+            font-size: clamp(28px, 6vw, 34px);
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .top-intro .top-intro-subtitle {
+            font-size: clamp(18px, 3.5vw, 20px);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .top-intro .top-intro-greeting {
+            font-size: clamp(15px, 3vw, 16px);
+            color: var(--white);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Main Image Container */
+        #mainImageContainer {
+            width: 94%;
+            margin: 20px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        #mainImage {
+            width: 100%;
+            display: none;
+            object-fit: contain; /* Changed to 'contain' to show the whole image */
+            vertical-align: middle;
+            background-color: #f0f2f5; /* Added a background for letterboxing */
+        }
+        #mainImagePlaceholder {
+            width: 100%;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+            color: #666;
+        }
+        #mainImagePlaceholder div {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Header Section */
+        .header {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header-title-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            margin-bottom: 15px; /* Add some space below for the paragraph */
+        }
+
+        #tts-button {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: clamp(13px, 2.8vw, 14px); /* Responsive font size */
+            font-weight: 500;
+            transition: background 0.3s;
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+        #tts-button:hover:not(:disabled) {
+            background: rgba(255,255,255,0.3);
+        }
+        #tts-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+            background: rgba(255,255,255,0.1); /* Slightly different disabled background */
+        }
+
+        .header .anniversary {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: clamp(14px, 2.5vw, 16px);
+            display: inline-block;
+            margin-bottom: 20px; /* Spacing below the anniversary badge */
+        }
+        
+        .header h2 {
+            font-size: clamp(20px, 4vw, 24px);
+            color: var(--white);
+            position: relative;
+        }
+
+        .header h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -8px;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .header p {
+            font-size: clamp(15px, 2.8vw, 16px);
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header .event-info {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 10px 20px;
+            text-align: left; /* Align text within event info */
+        }
+
+        .header .event-info-item {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .header .event-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .header .event-info-label {
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            min-width: 80px;
+            font-size: clamp(15px, 2.8vw, 16px);
+        }
+
+        .header .event-info-value {
+            color: var(--white);
+            font-size: clamp(15px, 2.8vw, 16px);
+            flex: 1;
+        }
+
+        /* Schedule Section */
+        .schedule {
+            padding: 40px 20px;
+            background: var(--bg-light);
+        }
+
+        .schedule h3, .media-section h3, .gallery-section h3, .registration h3, .map-section h3, .contact h3, .ci-section h3, .admin-section h3 {
+            font-size: clamp(20px, 4vw, 24px);
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .schedule-table {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        .schedule-row {
+            display: flex;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-light);
+            align-items: flex-start; /* Align content to the top */
+        }
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-row.header {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.2); /* Keep header border */
+        }
+
+        .schedule-time {
+            flex: 0 0 100px; /* Fixed width for time column */
+            font-size: clamp(13px, 2.5vw, 14px);
+            font-weight: 500;
+        }
+
+        .schedule-content {
+            flex: 1;
+            font-size: clamp(13px, 2.5vw, 14px);
+            line-height: 1.5; /* Improve readability */
+        }
+
+        /* Media Section (Video) */
+        .media-section {
+            padding: 40px 20px;
+            background: var(--bg-light);
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 560px;
+            margin: 0 auto 20px;
+            aspect-ratio: 16/9;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0e5ec 0%, #d3d9e2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-placeholder {
+            text-align: center;
+            padding: 20px; /* Add padding to placeholder */
+        }
+        .video-placeholder div {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section (Image Sliders) */
+        .gallery-section {
+            padding: 40px 20px;
+            background: var(--white);
+        }
+
+        .slider-container {
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-radius: 15px;
+            background: var(--bg-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Soft shadow for depth */
+        }
+
+        .slider-title {
+            font-size: clamp(16px, 3vw, 18px);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        .slider-wrapper {
+            overflow: hidden;
+            border-radius: 10px; /* Apply border-radius to wrapper as well */
+            margin: 0 20px; /* Keep consistent padding/margin */
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            aspect-ratio: 1/1;
+            background: var(--border-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: clamp(14px, 2.5vw, 16px);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the whole image is visible */
+            border-radius: 10px;
+        }
+
+        .slide-placeholder {
+            padding: 20px;
+            color: #888;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px; /* Increased margin for better spacing */
+        }
+
+        .slider-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Add subtle shadow to buttons */
+        }
+
+        .slider-btn:hover:not(:disabled) {
+            background: #5568d3;
+        }
+        .slider-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .dot:hover:not(.active) {
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+        }
+
+        /* Registration Section */
+        .registration {
+            padding: 40px 20px;
+            background: var(--bg-light);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: clamp(14px, 2.8vw, 16px);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: clamp(14px, 2.8vw, 16px);
+            background-color: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+            outline: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            min-width: 20px;
+            min-height: 20px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            margin-bottom: 0; /* Align label with checkbox */
+        }
+
+        .parking-notice {
+            background: var(--warning-bg);
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: var(--warning-text);
+            font-size: clamp(14px, 2.8vw, 16px);
+            line-height: 1.5;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: clamp(16px, 3.5vw, 18px);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(102, 126, 234, 0.6);
+        }
+        .submit-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+        
+        .delete-btn {
+            padding: 15px;
+            background: var(--error);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: clamp(16px, 3.5vw, 18px);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 600;
+        }
+        .delete-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(220, 53, 69, 0.6);
+        }
+        .delete-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+            box-shadow: none;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 40px 20px;
+            background: var(--white);
+        }
+
+        .location-info {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .location-info p {
+            margin-bottom: 10px;
+            font-size: clamp(14px, 2.8vw, 16px);
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+        .location-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .map-links-group {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .map-link {
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: clamp(14px, 3vw, 16px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-weight: 500;
+            min-width: 140px; /* Ensure buttons have a minimum width */
+            justify-content: center; /* Center content within button */
+        }
+        .map-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .map-link.naver-map {
+            background: #03C75A;
+        }
+
+        .map-link.kakao-map {
+            background: #FEE500;
+            color: #000000;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 40px 20px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: clamp(15px, 2.8vw, 16px);
+            margin: 10px 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-info .highlight-text {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* CI Section */
+        .ci-section {
+            padding: 40px 20px;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .ci-container {
+            max-width: 300px;
+            margin: 0 auto;
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-direction: column; /* Allow content to stack */
+        }
+
+        .ci-container img {
+            width: 100%;
+            height: auto;
+            max-height: 160px; /* Limit CI image height */
+            object-fit: contain;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .ci-placeholder {
+            color: #666;
+            text-align: center;
+            padding: 10px;
+        }
+        .ci-placeholder div {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+
+        /* Footer Section */
+        .footer {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: auto;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .footer-admin-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: clamp(15px, 3vw, 16px);
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .footer-admin-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .copyright {
+            font-size: clamp(12px, 2.5vw, 14px);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Utility Class */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Admin Page Specific Styles */
+        .admin-section {
+            background: var(--bg-light);
+            padding: 20px;
+            padding-top: 40px;
+            flex-grow: 1;
+        }
+
+        .admin-section > div:first-child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .admin-box {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 0 0 30px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.08);
+        }
+        
+        .admin-box h4 {
+            margin-bottom: 20px;
+            font-size: clamp(18px, 3.5vw, 20px);
+            color: var(--text-dark);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap; /* Allow buttons to wrap */
+        }
+        .button-group > .submit-btn,
+        .button-group > .delete-btn {
+            width: auto; /* Adjust width for button group */
+            flex: 1; /* Distribute space evenly */
+            margin-top: 0;
+            white-space: nowrap; /* Prevent button text from wrapping */
+            font-size: clamp(15px, 3vw, 17px);
+        }
+
+        .back-to-main-btn, .logout-btn {
+            padding: 12px 20px;
+            background: var(--white);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: clamp(14px, 3vw, 16px);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            border-color: var(--error);
+            color: var(--error);
+        }
+        .back-to-main-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        .logout-btn:hover {
+            background: var(--error);
+            color: var(--white);
+        }
+
+        .data-table {
+            width: 100%;
+            background: var(--white);
+            border-radius: 10px;
+            overflow-x: auto; /* Enable horizontal scrolling for tables on small screens */
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .data-table table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Ensure table is wide enough for content */
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 8px;
+            border-bottom: 1px solid var(--border-light);
+            font-size: clamp(13px, 2.5vw, 14px);
+            text-align: left;
+        }
+        .data-table th {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+            position: sticky; /* Keep header visible on scroll */
+            top: 0;
+            z-index: 1;
+        }
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .data-table td .delete-btn {
+            padding: 5px 10px; /* Smaller delete button in table */
+            font-size: 12px;
+            margin-top: 0;
+        }
+
+        /* Custom Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .modal-overlay:not(.hidden) {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .modal-overlay:not(.hidden) .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-content h4 {
+            font-size: clamp(20px, 4vw, 22px);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .modal-content p {
+            font-size: clamp(15px, 3vw, 17px);
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .modal-buttons button {
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: clamp(14px, 3vw, 16px);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .modal-confirm-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+        .modal-confirm-btn:hover {
+            background: #5568d3;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        .modal-cancel-btn {
+            background: #e0e0e0;
+            color: var(--text-dark);
+            border: 1px solid #ccc;
+        }
+        .modal-cancel-btn:hover {
+            background: #d4d4d4;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .preview-btn {
+            padding: 0 15px;
+            background: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: clamp(14px, 3vw, 16px);
+            white-space: nowrap;
+            height: 44px; /* Match height of input */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .preview-btn:hover {
+            background: #6a4190;
+        }
+
+        .image-preview-container {
+            margin-top: 10px;
+            width: 100%;
+            height: 100px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #fdfdff;
+            font-size: clamp(13px, 2.5vw, 14px);
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+        .image-preview-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+        .image-preview-container .preview-text {
+            margin: auto;
+            color: #999;
+        }
+        
+        #gemini-response-area {
+            white-space: pre-wrap;
+            text-align: left;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 480px) {
+            .header, .schedule, .media-section, .gallery-section, .registration, .map-section, .contact, .ci-section {
+                padding: 30px 15px;
+            }
+
+            .admin-section > div:first-child {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .admin-section > div:first-child button {
+                width: 100%;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+            .admin-box {
+                padding: 15px;
+                margin: 0 0 20px;
+            }
+            .header-title-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #tts-button {
+                width: 100%; /* Full width on small screens */
+            }
+            .map-links-group {
+                flex-direction: column;
+            }
+            .map-link {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+
+    <!-- Custom Modal Structure -->
+    <div id="customModal" class="modal-overlay hidden" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h4 id="modalTitle"></h4>
+            <div id="modalMessageContainer">
+                <p id="modalMessage"></p>
+            </div>
+            <div class="modal-buttons" id="modalButtons"></div>
+        </div>
+    </div>
+
+    <!-- Main Invitation Page -->
+    <div id="main-page">
+        <div class="container">
+            <div class="top-intro">
+                <h1>강동어울림복지관</h1>
+                <p class="top-intro-subtitle">개관 1주년 기념 행사</p>
+                <p class="top-intro-greeting">함께한 1년, 함께할 내일</p>
+            </div>
+
+            <div id="mainImageContainer">
+                <img id="mainImage" src="" alt="강동어울림복지관 메인 이미지">
+                <div id="mainImagePlaceholder">
+                    <div>🖼️</div>
+                    <p>초대장 메인 이미지</p>
+                </div>
+            </div>
+
+            <div class="header">
+                <div class="anniversary">🎉 더 어울림 Day 🎉</div>
+                <div class="header-title-container">
+                    <h2>소중한 여러분을 초대합니다</h2>
+                </div>
+                <p>참석하여 자리를 빛내주시길 바랍니다.</p>
+                <div class="event-info">
+                    <div class="event-info-item">
+                        <div class="event-info-label">일시</div>
+                        <div class="event-info-value">2025. 11. 7.(금) 14:30~15:30</div>
+                    </div>
+                    <div class="event-info-item">
+                        <div class="event-info-label">장소</div>
+                        <div class="event-info-value">강동어울림복지관 6층 어울림강당<br>(서울시 강동구 올림픽로 741)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-section">
+                <h3>기념 행사 초대 영상</h3>
+                <div class="video-container" id="videoContainer">
+                    <div class="video-placeholder">
+                        <div>🎬</div>
+                        <p>초대 영상</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule">
+                <h3>식순</h3>
+                <div class="schedule-table">
+                    <div class="schedule-row header">
+                        <div class="schedule-time">시간</div>
+                        <div class="schedule-content">내용</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">14:30~14:35</div>
+                        <div class="schedule-content">식전행사: 슬기락 난타 공연</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">14:35~14:38</div>
+                        <div class="schedule-content">개회선언 및 국민의례</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">14:38~14:43</div>
+                        <div class="schedule-content">내빈소개</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">14:43~14:55</div>
+                        <div class="schedule-content">기념사 및 축사</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">14:55~15:00</div>
+                        <div class="schedule-content">'1주년 기념 동영상' 상영</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">15:00~15:15</div>
+                        <div class="schedule-content">이용인 '자유 발언대'</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">15:15~15:20</div>
+                        <div class="schedule-content">기념사진 촬영</div>
+                    </div>
+                    <div class="schedule-row">
+                        <div class="schedule-time">15:20~15:30</div>
+                        <div class="schedule-content">폐회 및 퇴장</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>행사 프로그램</h3>
+                <div class="slider-container">
+                    <div class="slider-title">🎭 뮤지컬 공연 행사</div>
+                    <div class="slider-wrapper">
+                        <div class="slider" id="slider1">
+                            <!-- Slides will be dynamically loaded here by JS -->
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="slider1-prev" onclick="app.prevSlide('slider1')" aria-label="이전 뮤지컬 공연 이미지">←</button>
+                        <button class="slider-btn" id="slider1-next" onclick="app.nextSlide('slider1')" aria-label="다음 뮤지컬 공연 이미지">→</button>
+                    </div>
+                    <div class="slider-dots" id="dots1"></div>
+                </div>
+
+                <div class="slider-container">
+                    <div class="slider-title">🌾 쌀 1kg 나눔 행사</div>
+                    <div class="slider-wrapper">
+                        <div class="slider" id="slider2">
+                            <!-- Slides will be dynamically loaded here by JS -->
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="slider2-prev" onclick="app.prevSlide('slider2')" aria-label="이전 쌀 나눔 이미지">←</button>
+                        <button class="slider-btn" id="slider2-next" onclick="app.nextSlide('slider2')" aria-label="다음 쌀 나눔 이미지">→</button>
+                    </div>
+                    <div class="slider-dots" id="dots2"></div>
+                </div>
+            </div>
+
+            <div class="registration">
+                <h3>행사 참여 신청</h3>
+                <div class="parking-notice">
+                    🚗 복지관 주차장이 협소하오니, 대중교통을 이용해 주십시오.
+                </div>
+                <form id="registrationForm" onsubmit="app.handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">이름 *</label>
+                        <input type="text" id="name" required aria-required="true" placeholder="이름을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">소속 *</label>
+                        <input type="text" id="organization" required aria-required="true" placeholder="소속을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">전화번호 *</label>
+                        <input type="tel" id="phone" required aria-required="true" placeholder="010-1234-5678" oninput="app.formatPhoneNumber(this)">
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="useCar" onchange="app.toggleCarNumber()" aria-label="차량 이용 여부">
+                            <label for="useCar">차량 이용</label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="carNumberGroup" style="display:none;">
+                        <label for="carNumber">차량번호</label>
+                        <input type="text" id="carNumber" placeholder="예: 12가3456" oninput="app.formatCarNumber(this)">
+                    </div>
+                    <div class="form-group">
+                        <label for="companions">동석자 인원</label>
+                        <input type="number" id="companions" min="0" value="0" aria-label="동석자 인원 수">
+                    </div>
+                    <button type="submit" class="submit-btn" aria-label="참여 신청하기">참여 신청하기</button>
+                </form>
+                <div id="successMessage" class="success-message hidden">
+                    신청이 완료되었습니다! 감사합니다.
+                </div>
+            </div>
+
+            <div class="map-section">
+                <h3>찾아오시는 길</h3>
+                <div class="location-info">
+                    <p><strong>주소</strong><br>우)05244 서울특별시 강동구 올림픽로 741</p>
+                    <p><strong>버스로 오는 길</strong><br>천호동공원 정류장 하차 (지선: 3411, 3318, 3324 간선: 340)<br>암사역 방면 300m 도보 이동</p>
+                    <p><strong>지하철로 오는 길</strong><br>8호선 천호역 3번 출구에서 도보 약 15분</p>
+                </div>
+                <div class="map-links-group">
+                    <a href="https://map.naver.com/p/search/서울시 강동구 올림픽로 741" target="_blank" class="map-link naver-map" aria-label="네이버 지도에서 위치 보기">
+                        <span style="font-size: 20px;">📍</span>
+                        <span>네이버지도</span>
+                    </a>
+                    <a href="https://map.kakao.com/link/search/서울시 강동구 올림픽로 741" target="_blank" class="map-link kakao-map" aria-label="카카오맵에서 위치 보기">
+                        <span style="font-size: 20px;">🗺️</span>
+                        <span>카카오맵</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>문의</h3>
+                <div class="contact-info">
+                    <p><strong>전화</strong> <a href="tel:02-478-0741" aria-label="전화 문의">02-478-0741</a></p>
+                    <p><strong>담당팀</strong> <span class="highlight-text">전략기획팀</span></p>
+                    <p><strong>홈페이지</strong> <a href="https://gde.or.kr" target="_blank" aria-label="강동어울림복지관 홈페이지">gde.or.kr</a></p>
+                </div>
+            </div>
+
+            <div class="ci-section">
+                <div class="ci-container" id="ciContainer">
+                    <img id="ciImage" src="" alt="강동어울림복지관 CI">
+                    <div id="ciPlaceholder" class="ci-placeholder">
+                        <div>🏢</div>
+                        <p>복지관 CI</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                   <button class="footer-admin-btn" onclick="app.showAdminLogin()" aria-label="관리자 페이지로 이동">🔒 관리자 로그인</button>
+                   <p class="copyright">© 2025 강동어울림복지관. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Management Page -->
+    <div id="admin-page" class="hidden">
+        <div class="container">
+            <div class="admin-section">
+                <div>
+                    <button class="back-to-main-btn" onclick="app.showPage('main')" aria-label="초대장 페이지로 돌아가기">📋 초대장으로 돌아가기</button>
+                    <button class="logout-btn" onclick="app.handleLogout()" aria-label="로그아웃">🔓 로그아웃</button>
+                </div>
+                
+                <h3>미디어 관리</h3>
+                <div class="admin-box">
+                    <h4>메인 이미지 설정</h4>
+                    <div class="form-group">
+                        <label for="mainImageUrlInput">이미지 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="mainImageUrlInput" placeholder="https://example.com/image.jpg" style="flex-grow: 1;" aria-label="메인 이미지 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('mainImageUrlInput', 'mainImagePreview')" class="preview-btn" aria-label="메인 이미지 미리보기">미리보기</button>
+                        </div>
+                        <div id="mainImagePreview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                        <small style="color: var(--text-light); font-size: 0.85em; display: block; margin-top: 5px;">
+                            이미지의 '직접 링크'(URL이 .jpg, .png 등으로 끝남)를 입력해주세요. <br>
+                            Imgur의 경우, 이미지 우클릭 후 '이미지 주소 복사'를 선택하세요.
+                        </small>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="app.updateMainImage()" class="submit-btn" aria-label="메인 이미지 저장">이미지 저장</button>
+                        <button onclick="app.showConfirmModal('이미지 삭제', '메인 이미지를 삭제하시겠습니까?', () => app.deleteMainImage())" class="delete-btn" aria-label="메인 이미지 삭제">삭제</button>
+                    </div>
+                </div>
+
+                <div class="admin-box">
+                    <h4>초대 영상 설정</h4>
+                    <div class="form-group">
+                        <label for="videoUrl">유튜브 영상 URL</label>
+                        <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." oninput="app.previewYoutubeVideo('videoUrl', 'videoPreviewContainer')" aria-label="유튜브 영상 URL 입력">
+                    </div>
+                    <div id="videoPreviewContainer" class="image-preview-container" style="height: 150px;">
+                        <p class="preview-text">여기에 유튜브 영상 미리보기가 표시됩니다.</p>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="app.updateVideo()" class="submit-btn" aria-label="유튜브 영상 저장">동영상 저장</button>
+                        <button onclick="app.showConfirmModal('동영상 삭제', '초대 영상을 삭제하시겠습니까?', () => app.deleteVideo())" class="delete-btn" aria-label="유튜브 영상 삭제">삭제</button>
+                    </div>
+                </div>
+
+                <div class="admin-box">
+                    <h4>🎭 뮤지컬 공연 행사 이미지</h4>
+                    <div class="form-group">
+                        <label for="musical1Url">이미지 1 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="musical1Url" placeholder="https://example.com/musical1.jpg" style="flex-grow: 1;" aria-label="뮤지컬 공연 이미지 1 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('musical1Url', 'musical1Preview')" class="preview-btn" aria-label="뮤지컬 공연 이미지 1 미리보기">미리보기</button>
+                        </div>
+                        <div id="musical1Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                         <small style="color: var(--text-light); font-size: 0.85em; display: block; margin-top: 5px;">
+                            이미지의 '직접 링크'(URL이 .jpg, .png 등으로 끝남)를 입력해주세요.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="musical2Url">이미지 2 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="musical2Url" placeholder="https://example.com/musical2.jpg" style="flex-grow: 1;" aria-label="뮤지컬 공연 이미지 2 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('musical2Url', 'musical2Preview')" class="preview-btn" aria-label="뮤지컬 공연 이미지 2 미리보기">미리보기</button>
+                        </div>
+                        <div id="musical2Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                     <div class="form-group">
+                        <label for="musical3Url">이미지 3 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="musical3Url" placeholder="https://example.com/musical3.jpg" style="flex-grow: 1;" aria-label="뮤지컬 공연 이미지 3 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('musical3Url', 'musical3Preview')" class="preview-btn" aria-label="뮤지컬 공연 이미지 3 미리보기">미리보기</button>
+                        </div>
+                        <div id="musical3Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                     <div class="form-group">
+                        <label for="musical4Url">이미지 4 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="musical4Url" placeholder="https://example.com/musical4.jpg" style="flex-grow: 1;" aria-label="뮤지컬 공연 이미지 4 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('musical4Url', 'musical4Preview')" class="preview-btn" aria-label="뮤지컬 공연 이미지 4 미리보기">미리보기</button>
+                        </div>
+                        <div id="musical4Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="app.updateMusicalImages()" class="submit-btn" aria-label="뮤지컬 공연 이미지 저장">뮤지컬 이미지 저장</button>
+                        <button onclick="app.showConfirmModal('이미지 삭제', '뮤지컬 공연 이미지들을 모두 삭제하시겠습니까?', () => app.deleteMusicalImages())" class="delete-btn" aria-label="뮤지컬 공연 이미지 모두 삭제">모두 삭제</button>
+                    </div>
+                </div>
+
+                <div class="admin-box">
+                    <h4>🌾 쌀 1kg 나눔 행사 이미지</h4>
+                    <div class="form-group">
+                        <label for="rice1Url">이미지 1 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="rice1Url" placeholder="https://example.com/rice1.jpg" style="flex-grow: 1;" aria-label="쌀 나눔 이미지 1 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('rice1Url', 'rice1Preview')" class="preview-btn" aria-label="쌀 나눔 이미지 1 미리보기">미리보기</button>
+                        </div>
+                        <div id="rice1Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                         <small style="color: var(--text-light); font-size: 0.85em; display: block; margin-top: 5px;">
+                            이미지의 '직접 링크'(URL이 .jpg, .png 등으로 끝남)를 입력해주세요.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="rice2Url">이미지 2 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="rice2Url" placeholder="https://example.com/rice2.jpg" style="flex-grow: 1;" aria-label="쌀 나눔 이미지 2 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('rice2Url', 'rice2Preview')" class="preview-btn" aria-label="쌀 나눔 이미지 2 미리보기">미리보기</button>
+                        </div>
+                        <div id="rice2Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rice3Url">이미지 3 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="rice3Url" placeholder="https://example.com/rice3.jpg" style="flex-grow: 1;" aria-label="쌀 나눔 이미지 3 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('rice3Url', 'rice3Preview')" class="preview-btn" aria-label="쌀 나눔 이미지 3 미리보기">미리보기</button>
+                        </div>
+                        <div id="rice3Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rice4Url">이미지 4 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="rice4Url" placeholder="https://example.com/rice4.jpg" style="flex-grow: 1;" aria-label="쌀 나눔 이미지 4 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('rice4Url', 'rice4Preview')" class="preview-btn" aria-label="쌀 나눔 이미지 4 미리보기">미리보기</button>
+                        </div>
+                        <div id="rice4Preview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="app.updateRiceImages()" class="submit-btn" aria-label="쌀 나눔 이미지 저장">쌀 나눔 이미지 저장</button>
+                        <button onclick="app.showConfirmModal('이미지 삭제', '쌀 나눔 행사 이미지들을 모두 삭제하시겠습니까?', () => app.deleteRiceImages())" class="delete-btn" aria-label="쌀 나눔 이미지 모두 삭제">모두 삭제</button>
+                    </div>
+                </div>
+
+                <div class="admin-box">
+                    <h4>🏢 복지관 CI 이미지 설정</h4>
+                    <div class="form-group">
+                        <label for="ciImageUrlInput">CI 이미지 URL</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="url" id="ciImageUrlInput" placeholder="https://example.com/ci.png" style="flex-grow: 1;" aria-label="CI 이미지 URL 입력">
+                            <button type="button" onclick="app.previewImageFromUrl('ciImageUrlInput', 'ciImageAdminPreview')" class="preview-btn" aria-label="CI 이미지 미리보기">미리보기</button>
+                        </div>
+                        <div id="ciImageAdminPreview" class="image-preview-container"><p class="preview-text">이미지 미리보기</p></div>
+                         <small style="color: var(--text-light); font-size: 0.85em; display: block; margin-top: 5px;">
+                            이미지의 '직접 링크'(URL이 .jpg, .png 등으로 끝남)를 입력해주세요.
+                        </small>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="app.updateCiImage()" class="submit-btn" aria-label="CI 이미지 저장">CI 이미지 저장</button>
+                        <button onclick="app.showConfirmModal('CI 이미지 삭제', '복지관 CI 이미지를 삭제하시겠습니까?', () => app.deleteCiImage())" class="delete-btn" aria-label="CI 이미지 삭제">삭제</button>
+                    </div>
+                </div>
+
+
+                <h3 style="margin-top: 40px;">참여 신청자 관리</h3>
+                <div class="data-table" id="registrationsTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>신청시간</th>
+                                <th>이름</th>
+                                <th>소속</th>
+                                <th>전화번호</th>
+                                <th>차량 이용</th>
+                                <th>차량번호</th>
+                                <th>동석자</th>
+                                <th>삭제</th>
+                            </tr>
+                        </thead>
+                        <tbody id="registrationsBody"></tbody>
+                    </table>
+                </div>
+                <button onclick="app.exportToCsv()" class="submit-btn" style="background: #1D6F42;" aria-label="참여 신청자 데이터를 CSV로 내보내기">엑셀(CSV)로 내보내기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs and App Logic -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, addDoc, getDocs, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        // import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js"; // For debugging
+
+        // setLogLevel('debug'); // Uncomment for Firestore debugging logs
+
+        // Global variables from the environment (provided by Canvas)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+
+        // Firebase initialization
+        const appInstance = initializeApp(firebaseConfig);
+        const db = getFirestore(appInstance);
+        const auth = getAuth(appInstance);
+
+        const app = {
+            currentSlide: {
+                slider1: 0,
+                slider2: 0
+            },
+            maxSlides: {
+                slider1: 0,
+                slider2: 0
+            },
+            isAdminLoggedIn: false,
+            
+            // Firebase user ID (can be anonymous or authenticated)
+            userId: null,
+
+            init: async function() {
+                // Initialize authentication state
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        this.userId = user.uid;
+                        console.log("Firebase Auth State Changed: Logged in as", this.userId);
+                    } else {
+                        // If no user, try to sign in anonymously
+                        try {
+                            if (initialAuthToken) {
+                                await signInWithCustomToken(auth, initialAuthToken);
+                            } else {
+                                await signInAnonymously(auth);
+                            }
+                            this.userId = auth.currentUser.uid;
+                            console.log("Firebase Authenticated as:", this.userId);
+                        } catch (error) {
+                            console.error("Error signing in anonymously:", error);
+                            this.showCustomModal("인증 오류", "초대장 기능을 사용하기 위한 인증에 실패했습니다.");
+                            this.userId = crypto.randomUUID(); // Fallback to a random ID if auth fails completely
+                        }
+                    }
+                    this.loadInvitationData();
+                    this.setupSliders();
+                });
+            },
+
+            // Helper function to convert Imgur page URLs to direct image links
+            convertImgurUrl: function(url) {
+                // Checks if it's a non-direct Imgur URL (e.g., https://imgur.com/galleryId)
+                if (url && url.includes('imgur.com/') && !url.includes('i.imgur.com')) {
+                    const parts = url.split('/');
+                    const imageId = parts[parts.length - 1].split('?')[0]; // Get last part and remove query params
+                    if (imageId) {
+                        return `https://i.imgur.com/${imageId}.png`; // Convert to direct link, .png is a safe default
+                    }
+                }
+                return url; // Return original url if not a convertible imgur link
+            },
+
+            // Helper to get Firestore document reference for public data
+            getPublicDocRef: function(docName) {
+                // Path must conform to security rules: /artifacts/{appId}/public/data/{collection}/{doc}
+                return doc(db, `artifacts/${appId}/public/data/config/${docName}`);
+            },
+            // Helper to get Firestore collection reference for public data
+            getPublicCollectionRef: function(collectionName) {
+                // Path must conform to security rules: /artifacts/{appId}/public/data/{collection}
+                return collection(db, `artifacts/${appId}/public/data/${collectionName}`);
+            },
+
+            // Loads all invitation-related data from Firestore and updates the UI
+            loadInvitationData: function() {
+                const mediaDocRef = this.getPublicDocRef('settings');
+                onSnapshot(mediaDocRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        console.log("Invitation data loaded:", data);
+
+                        // Update Main Image
+                        const mainImage = document.getElementById('mainImage');
+                        const mainImagePlaceholder = document.getElementById('mainImagePlaceholder');
+                        if (data.mainImageUrl) {
+                            mainImage.src = data.mainImageUrl;
+                            mainImage.style.display = 'block';
+                            mainImagePlaceholder.style.display = 'none';
+                            mainImage.onerror = () => { // Fallback for broken image
+                                mainImage.style.display = 'none';
+                                mainImagePlaceholder.style.display = 'block';
+                                mainImagePlaceholder.innerHTML = `<div>❌</div><p style="color:var(--error);">이미지 로드 실패</p>`;
+                            };
+                        } else {
+                            mainImage.style.display = 'none';
+                            mainImagePlaceholder.style.display = 'block';
+                            mainImagePlaceholder.innerHTML = `<div>🖼️</div><p>초대장 메인 이미지</p>`;
+                        }
+
+                        // Update Video
+                        const videoContainer = document.getElementById('videoContainer');
+                        if (data.videoUrl) {
+                            const videoId = this.getYoutubeVideoId(data.videoUrl);
+                            if (videoId) {
+                                videoContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px;"></iframe>`;
+                            } else {
+                                videoContainer.innerHTML = `<div class="video-placeholder"><div style="font-size: 48px; margin-bottom: 10px;">🎬</div><p style="color:var(--error);">잘못된 유튜브 URL입니다.</p></div>`;
+                            }
+                        } else {
+                            videoContainer.innerHTML = `<div class="video-placeholder"><div style="font-size: 48px; margin-bottom: 10px;">🎬</div><p>초대 영상</p></div>`;
+                        }
+
+                        // Update Sliders
+                        this.updateSliderImages('slider1', 'dots1', data.musicalImages || []);
+                        this.updateSliderImages('slider2', 'dots2', data.riceImages || []);
+
+                        // Update CI Image
+                        const ciImage = document.getElementById('ciImage');
+                        const ciPlaceholder = document.getElementById('ciPlaceholder');
+                        if (data.ciImageUrl) {
+                            ciImage.src = data.ciImageUrl;
+                            ciImage.style.display = 'block';
+                            ciPlaceholder.style.display = 'none';
+                            ciImage.onerror = () => { // Fallback for broken image
+                                ciImage.style.display = 'none';
+                                ciPlaceholder.style.display = 'flex';
+                                ciPlaceholder.innerHTML = `<div>❌</div><p style="color:var(--error);">CI 이미지 로드 실패</p>`;
+                            };
+                        } else {
+                            ciImage.style.display = 'none';
+                            ciPlaceholder.style.display = 'flex';
+                            ciPlaceholder.innerHTML = `<div>🏢</div><p>복지관 CI</p>`;
+                        }
+                    } else {
+                        console.log("No invitation settings found. Displaying default placeholders.");
+                        document.getElementById('mainImage').style.display = 'none';
+                        document.getElementById('mainImagePlaceholder').style.display = 'block';
+                        document.getElementById('mainImagePlaceholder').innerHTML = `<div>🖼️</div><p>초대장 메인 이미지</p>`;
+                        document.getElementById('videoContainer').innerHTML = `<div class="video-placeholder"><div style="font-size: 48px; margin-bottom: 10px;">🎬</div><p>초대 영상</p></div>`;
+                        document.getElementById('ciImage').style.display = 'none';
+                        document.getElementById('ciPlaceholder').style.display = 'flex';
+                        document.getElementById('ciPlaceholder').innerHTML = `<div>🏢</div><p>복지관 CI</p>`;
+                        this.updateSliderImages('slider1', 'dots1', []);
+                        this.updateSliderImages('slider2', 'dots2', []);
+                    }
+                }, (error) => {
+                    console.error("Error loading invitation data:", error);
+                    this.showCustomModal('데이터 로드 오류', `초대장 데이터를 불러오는 중 오류가 발생했습니다: ${error.message}`);
+                });
+            },
+
+            // Loads admin-specific data (media URLs and registrations)
+            loadAdminData: async function() {
+                if (!this.isAdminLoggedIn) {
+                    this.showCustomModal('접근 거부', '관리자 권한이 없습니다.');
+                    return;
+                }
+
+                const mediaDocRef = this.getPublicDocRef('settings');
+                try {
+                    const docSnap = await getDoc(mediaDocRef);
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        document.getElementById('mainImageUrlInput').value = data.mainImageUrl || '';
+                        this.previewImageFromUrl('mainImageUrlInput', 'mainImagePreview');
+
+                        document.getElementById('videoUrl').value = data.videoUrl || '';
+                        this.previewYoutubeVideo('videoUrl', 'videoPreviewContainer');
+
+                        const musicalUrls = data.musicalImages || [];
+                        document.getElementById('musical1Url').value = musicalUrls[0] || '';
+                        document.getElementById('musical2Url').value = musicalUrls[1] || '';
+                        document.getElementById('musical3Url').value = musicalUrls[2] || '';
+                        document.getElementById('musical4Url').value = musicalUrls[3] || '';
+                        this.previewImageFromUrl('musical1Url', 'musical1Preview');
+                        this.previewImageFromUrl('musical2Url', 'musical2Preview');
+                        this.previewImageFromUrl('musical3Url', 'musical3Preview');
+                        this.previewImageFromUrl('musical4Url', 'musical4Preview');
+
+                        const riceUrls = data.riceImages || [];
+                        document.getElementById('rice1Url').value = riceUrls[0] || '';
+                        document.getElementById('rice2Url').value = riceUrls[1] || '';
+                        document.getElementById('rice3Url').value = riceUrls[2] || '';
+                        document.getElementById('rice4Url').value = riceUrls[3] || '';
+                        this.previewImageFromUrl('rice1Url', 'rice1Preview');
+                        this.previewImageFromUrl('rice2Url', 'rice2Preview');
+                        this.previewImageFromUrl('rice3Url', 'rice3Preview');
+                        this.previewImageFromUrl('rice4Url', 'rice4Preview');
+
+                        document.getElementById('ciImageUrlInput').value = data.ciImageUrl || '';
+                        this.previewImageFromUrl('ciImageUrlInput', 'ciImageAdminPreview');
+                    } else {
+                        console.log("No admin media settings found, fields will be empty.");
+                        // Clear input fields and previews if no settings exist
+                        ['mainImageUrlInput', 'videoUrl', 'musical1Url', 'musical2Url', 'musical3Url', 'musical4Url', 'rice1Url', 'rice2Url', 'rice3Url', 'rice4Url', 'ciImageUrlInput'].forEach(id => {
+                            const input = document.getElementById(id);
+                            if (input) input.value = '';
+                        });
+                        ['mainImagePreview', 'videoPreviewContainer', 'musical1Preview', 'musical2Preview', 'musical3Preview', 'musical4Preview', 'rice1Preview', 'rice2Preview', 'rice3Preview', 'rice4Preview', 'ciImageAdminPreview'].forEach(id => {
+                            const preview = document.getElementById(id);
+                            if(preview) preview.innerHTML = '<p class="preview-text">이미지 미리보기</p>';
+                        });
+                    }
+                } catch (error) {
+                    console.error("Error loading admin media data:", error);
+                    this.showCustomModal('데이터 로드 오류', `관리자 미디어 설정 로드 중 오류가 발생했습니다: ${error.message}`);
+                }
+
+                // Real-time listener for registrations
+                const registrationsColRef = this.getPublicCollectionRef('registrations');
+                onSnapshot(registrationsColRef, (snapshot) => {
+                    const registrationsBody = document.getElementById('registrationsBody');
+                    registrationsBody.innerHTML = '';
+                    if (snapshot.empty) {
+                        const row = registrationsBody.insertRow();
+                        const cell = row.insertCell();
+                        cell.colSpan = 8;
+                        cell.textContent = '아직 참여 신청이 없습니다.';
+                        cell.style.textAlign = 'center';
+                        cell.style.padding = '20px';
+                        cell.style.color = 'var(--text-light)';
+                        return;
+                    }
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const row = registrationsBody.insertRow();
+                        row.insertCell().textContent = data.timestamp ? new Date(data.timestamp).toLocaleString() : 'N/A';
+                        row.insertCell().textContent = data.name;
+                        row.insertCell().textContent = data.organization;
+                        row.insertCell().textContent = data.phone;
+                        row.insertCell().textContent = data.carNumber || 'N/A';
+                        row.insertCell().textContent = data.companions;
+                        const deleteCell = row.insertCell();
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = '삭제';
+                        deleteButton.className = 'delete-btn';
+                        deleteButton.onclick = () => this.showConfirmModal('등록 삭제', `'${data.name}'님의 신청을 삭제하시겠습니까?`, () => this.deleteRegistration(doc.id));
+                        deleteCell.appendChild(deleteButton);
+                    });
+                }, (error) => {
+                    console.error("Error getting real-time registrations:", error);
+                    this.showCustomModal('데이터 로드 오류', `참여 신청 목록 로드 중 오류가 발생했습니다: ${error.message}`);
+                });
+            },
+
+            // Toggles between main and admin pages
+            showPage: function(pageId) {
+                document.getElementById('main-page').classList.add('hidden');
+                document.getElementById('admin-page').classList.add('hidden');
+                document.getElementById(`${pageId}-page`).classList.remove('hidden');
+                if (pageId === 'admin' && this.isAdminLoggedIn) {
+                    this.loadAdminData();
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            },
+
+            // Displays a custom modal for alerts, confirms, or password input
+            showCustomModal: function(title, message, type = 'alert', onConfirm = null) {
+                const modal = document.getElementById('customModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalMessageContainer = document.getElementById('modalMessageContainer');
+                const modalButtons = document.getElementById('modalButtons');
+
+                modalTitle.textContent = title;
+                modalMessageContainer.innerHTML = `<p id="modalMessage">${message}</p>`; // Reset content
+                modalButtons.innerHTML = '';
+
+                if (type === 'password') {
+                    modalMessageContainer.innerHTML += `
+                        <div class="form-group" style="margin-top: 15px;">
+                            <input type="password" id="modalPasswordInput" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px;" placeholder="비밀번호 입력" aria-label="관리자 비밀번호">
+                        </div>`;
+                    
+                    const confirmBtn = document.createElement('button');
+                    confirmBtn.textContent = '로그인';
+                    confirmBtn.className = 'modal-confirm-btn';
+                    
+                    const passwordInput = modalMessageContainer.querySelector('#modalPasswordInput');
+                    const loginAction = () => {
+                        if (onConfirm) onConfirm(passwordInput.value);
+                    };
+
+                    passwordInput.onkeydown = (event) => {
+                        if (event.key === 'Enter') {
+                            event.preventDefault(); // Prevent form submission if in a form
+                            loginAction();
+                        }
+                    };
+                    confirmBtn.onclick = loginAction;
+
+                    modalButtons.appendChild(confirmBtn);
+
+                    const cancelBtn = document.createElement('button');
+                    cancelBtn.textContent = '취소';
+                    cancelBtn.className = 'modal-cancel-btn';
+                    cancelBtn.onclick = () => modal.classList.add('hidden');
+                    modalButtons.appendChild(cancelBtn);
+
+                } else if (type === 'confirm' || type === 'gemini') {
+                    if (type === 'gemini') {
+                        // For Gemini response, display it in a scrollable pre-wrap area
+                        modalMessageContainer.innerHTML = `<div id="gemini-response-area">${message}</div>`;
+                    }
+                    const confirmBtn = document.createElement('button');
+                    confirmBtn.textContent = (type === 'gemini') ? '복사' : '확인';
+                    confirmBtn.className = 'modal-confirm-btn';
+                    confirmBtn.onclick = () => { 
+                        if (onConfirm) onConfirm(); 
+                        modal.classList.add('hidden'); 
+                    };
+                    modalButtons.appendChild(confirmBtn);
+
+                    const cancelBtn = document.createElement('button');
+                    cancelBtn.textContent = '닫기';
+                    cancelBtn.className = 'modal-cancel-btn';
+                    cancelBtn.onclick = () => modal.classList.add('hidden');
+                    modalButtons.appendChild(cancelBtn);
+
+                } else { // 'alert' type
+                    const okBtn = document.createElement('button');
+                    okBtn.textContent = '확인';
+                    okBtn.className = 'modal-confirm-btn';
+                    okBtn.onclick = () => modal.classList.add('hidden');
+                    modalButtons.appendChild(okBtn);
+                }
+                modal.classList.remove('hidden');
+                // Focus on password input if available
+                if (type === 'password') {
+                    document.getElementById('modalPasswordInput').focus();
+                } else if (type === 'gemini') {
+                    // Focus on copy button for accessibility
+                    modalButtons.querySelector('.modal-confirm-btn').focus();
+                } else {
+                    // Focus on default confirm/ok button
+                    modalButtons.querySelector('.modal-confirm-btn').focus();
+                }
+            },
+            
+            // Wrapper for showCustomModal with 'confirm' type
+            showConfirmModal: function(title, message, onConfirm) {
+                this.showCustomModal(title, message, 'confirm', onConfirm);
+            },
+
+            // Handles admin login
+            showAdminLogin: function() {
+                this.showCustomModal(
+                    '🔒 관리자 로그인',
+                    '관리자 비밀번호를 입력해주세요.',
+                    'password',
+                    (password) => {
+                        if (password === 'gde1107!') { // Hardcoded password for this example
+                            this.isAdminLoggedIn = true;
+                            document.getElementById('customModal').classList.add('hidden');
+                            this.showPage('admin');
+                            this.showCustomModal('로그인 성공', '관리자 모드에 오신 것을 환영합니다!');
+                        } else {
+                            const modalMessageContainer = document.getElementById('modalMessageContainer');
+                            // Add an error message without duplicating
+                            if (!modalMessageContainer.querySelector('.error-text')) {
+                                const errorEl = document.createElement('p');
+                                errorEl.textContent = '비밀번호가 올바르지 않습니다.';
+                                errorEl.style.color = 'var(--error)';
+                                errorEl.style.marginTop = '10px';
+                                errorEl.className = 'error-text';
+                                modalMessageContainer.appendChild(errorEl);
+                            }
+                            document.getElementById('modalPasswordInput').value = ''; // Clear password
+                            document.getElementById('modalPasswordInput').focus();
+                        }
+                    }
+                );
+            },
+
+            // Extracts YouTube video ID from various URL formats
+            getYoutubeVideoId: function(url) {
+                const regExp = /(?:https?:\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=|embed\/|v\/|)([\w-]{11})(?:\S+)?/g;
+                const match = regExp.exec(url);
+                return (match && match[1] && match[1].length === 11) ? match[1] : null;
+            },
+
+            // Handles admin logout
+            handleLogout: function() {
+                this.isAdminLoggedIn = false;
+                this.showPage('main');
+                console.log("Admin logged out.");
+                this.showCustomModal('로그아웃', '관리자 모드에서 로그아웃 되었습니다.');
+
+                // Clear admin input fields and previews on logout
+                const inputs = ['mainImageUrlInput', 'videoUrl', 'musical1Url', 'musical2Url', 'musical3Url', 'musical4Url', 'rice1Url', 'rice2Url', 'rice3Url', 'rice4Url', 'ciImageUrlInput'];
+                inputs.forEach(id => {
+                    const input = document.getElementById(id);
+                    if (input) input.value = '';
+                });
+                ['mainImagePreview', 'videoPreviewContainer', 'musical1Preview', 'musical2Preview', 'musical3Preview', 'musical4Preview', 'rice1Preview', 'rice2Preview', 'rice3Preview', 'rice4Preview', 'ciImageAdminPreview'].forEach(id => {
+                    const preview = document.getElementById(id);
+                    if(preview) preview.innerHTML = '<p class="preview-text">이미지 미리보기</p>';
+                });
+            },
+
+            // Generic function to update a media setting in Firestore
+            updateMediaSetting: async function(key, value) {
+                if (!this.isAdminLoggedIn) {
+                    this.showCustomModal('권한 없음', '미디어 설정을 업데이트할 권한이 없습니다.');
+                    return;
+                }
+                const mediaDocRef = this.getPublicDocRef('settings');
+                try {
+                    await setDoc(mediaDocRef, { [key]: value }, { merge: true });
+                    this.showCustomModal('저장 완료', '미디어 설정이 저장되었습니다.');
+                } catch (error) {
+                    console.error(`Error updating media setting "${key}":`, error);
+                    this.showCustomModal('오류 발생', `미디어 설정 저장 중 오류가 발생했습니다: ${error.message}`);
+                }
+            },
+
+            // Generic function to delete a media setting from Firestore
+            deleteMediaSetting: async function(key) {
+                if (!this.isAdminLoggedIn) {
+                    this.showCustomModal('권한 없음', '미디어 설정을 삭제할 권한이 없습니다.');
+                    return;
+                }
+                const mediaDocRef = this.getPublicDocRef('settings');
+                try {
+                    // Using updateDoc with 'delete' field to remove specific fields
+                    const updateData = {};
+                    if (Array.isArray(key)) { // For array fields like images
+                        updateData[key[0]] = [];
+                    } else {
+                        updateData[key] = null; // Set to null to remove the field
+                    }
+                    await updateDoc(mediaDocRef, updateData);
+                    this.showCustomModal('삭제 완료', '미디어 설정이 삭제되었습니다.');
+                    
+                    // Clear associated input fields and previews
+                    const urlInputsMap = {
+                        mainImageUrl: ['mainImageUrlInput'],
+                        videoUrl: ['videoUrl'],
+                        musicalImages: ['musical1Url', 'musical2Url', 'musical3Url', 'musical4Url'],
+                        riceImages: ['rice1Url', 'rice2Url', 'rice3Url', 'rice4Url'],
+                        ciImageUrl: ['ciImageUrlInput']
+                    };
+                    const previewContainersMap = {
+                        mainImageUrl: ['mainImagePreview'],
+                        videoUrl: ['videoPreviewContainer'],
+                        musicalImages: ['musical1Preview', 'musical2Preview', 'musical3Preview', 'musical4Preview'],
+                        riceImages: ['rice1Preview', 'rice2Preview', 'rice3Preview', 'rice4Preview'],
+                        ciImageUrl: ['ciImageAdminPreview']
+                    };
+
+                    const actualKey = Array.isArray(key) ? key[0] : key; // Get the actual key name
+
+                    if (urlInputsMap[actualKey]) {
+                        urlInputsMap[actualKey].forEach(id => {
+                            const input = document.getElementById(id);
+                            if (input) input.value = '';
+                        });
+                    }
+                    if(previewContainersMap[actualKey]){
+                        previewContainersMap[actualKey].forEach(id => {
+                            const preview = document.getElementById(id);
+                            if(preview) {
+                                // Specific placeholder text for video preview
+                                if (id === 'videoPreviewContainer') {
+                                    preview.innerHTML = `<p class="preview-text" style="margin: auto;">여기에 유튜브 영상 미리보기가 표시됩니다.</p>`;
+                                } else {
+                                    preview.innerHTML = `<p class="preview-text" style="margin: auto;">이미지 미리보기</p>`;
+                                }
+                            }
+                        });
+                    }
+
+                } catch (error) {
+                    console.error(`Error deleting media setting "${key}":`, error);
+                    this.showCustomModal('오류 발생', `미디어 설정 삭제 중 오류가 발생했습니다: ${error.message}`);
+                }
+            },
+
+            // Specific media update/delete functions (wrappers for generic functions)
+            updateMainImage: function() { 
+                const input = document.getElementById('mainImageUrlInput');
+                const convertedUrl = this.convertImgurUrl(input.value);
+                input.value = convertedUrl; // Update input field with direct link
+                this.updateMediaSetting('mainImageUrl', convertedUrl); 
+            },
+            deleteMainImage: function() { this.deleteMediaSetting('mainImageUrl'); },
+            updateVideo: function() { this.updateMediaSetting('videoUrl', document.getElementById('videoUrl').value); },
+            deleteVideo: function() { this.deleteMediaSetting('videoUrl'); },
+            updateMusicalImages: function() { 
+                const urls = ['musical1Url', 'musical2Url', 'musical3Url', 'musical4Url'].map(id => {
+                    const input = document.getElementById(id);
+                    const convertedUrl = this.convertImgurUrl(input.value);
+                    input.value = convertedUrl;
+                    return convertedUrl;
+                });
+                this.updateMediaSetting('musicalImages', urls.filter(Boolean)); // Filter out empty strings
+            },
+            deleteMusicalImages: function() { this.deleteMediaSetting(['musicalImages', 'slider1']); }, // Pass an array to handle slider reset
+            updateRiceImages: function() { 
+                const urls = ['rice1Url', 'rice2Url', 'rice3Url', 'rice4Url'].map(id => {
+                    const input = document.getElementById(id);
+                    const convertedUrl = this.convertImgurUrl(input.value);
+                    input.value = convertedUrl;
+                    return convertedUrl;
+                });
+                this.updateMediaSetting('riceImages', urls.filter(Boolean)); // Filter out empty strings
+            },
+            deleteRiceImages: function() { this.deleteMediaSetting(['riceImages', 'slider2']); }, // Pass an array to handle slider reset
+            updateCiImage: function() { 
+                const input = document.getElementById('ciImageUrlInput');
+                const convertedUrl = this.convertImgurUrl(input.value);
+                input.value = convertedUrl;
+                this.updateMediaSetting('ciImageUrl', convertedUrl); 
+            },
+            deleteCiImage: function() { this.deleteMediaSetting('ciImageUrl'); },
+
+            // Previews an image from a URL in a designated container
+            previewImageFromUrl: function(inputId, previewId) {
+                const input = document.getElementById(inputId);
+                const previewContainer = document.getElementById(previewId);
+                let url = input.value;
+
+                // Convert Imgur URL to direct link for preview
+                url = this.convertImgurUrl(url);
+
+                previewContainer.innerHTML = ''; // Clear previous content
+                if (url) {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = "Image Preview";
+                    img.onerror = () => {
+                        previewContainer.innerHTML = `<p class="preview-text" style="color: var(--error); margin: auto; font-size: 13px; padding: 5px;">
+                            이미지를 로드할 수 없습니다.<br>
+                            직접 링크(.jpg, .png 등)가 맞는지 확인해주세요.
+                        </p>`;
+                    };
+                    previewContainer.appendChild(img);
+                } else {
+                    previewContainer.innerHTML = `<p class="preview-text" style="margin: auto;">이미지 미리보기</p>`;
+                }
+            },
+
+            // Previews a YouTube video from a URL in a designated container
+            previewYoutubeVideo: function(inputId, previewId) {
+                const input = document.getElementById(inputId);
+                const previewContainer = document.getElementById(previewId);
+                const url = input.value;
+                const videoId = this.getYoutubeVideoId(url);
+                previewContainer.innerHTML = videoId
+                    ? `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px;"></iframe>`
+                    : `<p class="preview-text" style="margin: auto;">여기에 유튜브 영상 미리보기가 표시됩니다.</p>`;
+            },
+
+            // Handles the registration form submission
+            handleSubmit: async function(event) {
+                event.preventDefault();
+                const form = event.target;
+                const name = form.name.value.trim();
+                const organization = form.organization.value.trim();
+                const phone = form.phone.value.trim();
+                const useCar = form.useCar.checked;
+                const carNumber = useCar ? form.carNumber.value.trim() : '';
+                const companions = parseInt(form.companions.value, 10);
+
+                if (!name || !organization || !phone) {
+                    this.showCustomModal('입력 오류', '이름, 소속, 전화번호는 필수 입력 항목입니다.');
+                    return;
+                }
+                const phonePattern = /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/;
+                if (!phonePattern.test(phone)) {
+                    this.showCustomModal('입력 오류', '올바른 전화번호 형식(예: 010-1234-5678)으로 입력해주세요.');
+                    return;
+                }
+                if (useCar && !carNumber) {
+                     this.showCustomModal('입력 오류', '차량을 이용하시는 경우 차량번호를 입력해주세요.');
+                     return;
+                }
+                // Validate car number format if provided
+                if (useCar && carNumber) {
+                    const carNumberPattern = /^[0-9]{2,3}[가-힣][0-9]{4}$/;
+                    if (!carNumberPattern.test(carNumber)) {
+                        this.showCustomModal('입력 오류', '올바른 차량번호 형식(예: 12가3456)으로 입력해주세요.');
+                        return;
+                    }
+                }
+                if (isNaN(companions) || companions < 0) {
+                    this.showCustomModal('입력 오류', '동석자 인원은 0 이상의 숫자로 입력해주세요.');
+                    return;
+                }
+
+                const registrationData = {
+                    name, organization, phone, useCar, carNumber,
+                    companions: companions,
+                    timestamp: new Date().toISOString()
+                };
+
+                try {
+                    await addDoc(this.getPublicCollectionRef('registrations'), registrationData);
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    form.reset(); // Clear the form after successful submission
+                    document.getElementById('carNumberGroup').style.display = 'none'; // Hide car number field
+                    this.showCustomModal('신청 완료', '참여 신청이 성공적으로 완료되었습니다.');
+                    setTimeout(() => document.getElementById('successMessage').classList.add('hidden'), 5000); // Hide success message after 5 seconds
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                    this.showCustomModal('신청 실패', '오류가 발생했습니다: ' + error.message);
+                }
+            },
+
+            // Deletes a registration record from Firestore
+            deleteRegistration: async function(docId) {
+                if (!this.isAdminLoggedIn) {
+                    this.showCustomModal('권한 없음', '참여 신청을 삭제할 권한이 없습니다.');
+                    return;
+                }
+                try {
+                    await deleteDoc(doc(this.getPublicCollectionRef('registrations'), docId));
+                    this.showCustomModal('삭제 완료', '신청 정보가 삭제되었습니다.');
+                } catch (error) {
+                    console.error("Error removing document: ", error);
+                    this.showCustomModal('삭제 실패', '오류가 발생했습니다: ' + error.message);
+                }
+            },
+
+            // Exports registration data to a CSV file
+            exportToCsv: async function() {
+                if (!this.isAdminLoggedIn) {
+                    this.showCustomModal('권한 없음', '데이터를 내보낼 권한이 없습니다.');
+                    return;
+                }
+                try {
+                    const querySnapshot = await getDocs(this.getPublicCollectionRef('registrations'));
+                    if (querySnapshot.empty) {
+                        this.showCustomModal('내보내기 실패', '내보낼 데이터가 없습니다.');
+                        return;
+                    }
+                    let csvContent = "data:text/csv;charset=utf-8,\uFEFF"; // Add UTF-8 BOM for Korean characters
+                    csvContent += "신청시간,이름,소속,전화번호,차량 이용,차량번호,동석자수\n";
+
+                    querySnapshot.forEach(doc => {
+                        const row = doc.data();
+                        const rowData = [
+                            row.timestamp ? new Date(row.timestamp).toLocaleString() : '',
+                            row.name, row.organization, row.phone,
+                            row.useCar ? '예' : '아니오',
+                            row.carNumber, row.companions
+                        ].map(field => `"${String(field || '').replace(/"/g, '""')}"`).join(','); // Handle commas and quotes in data
+                        csvContent += rowData + "\n";
+                    });
+
+                    const link = document.createElement("a");
+                    link.setAttribute("href", encodeURI(csvContent));
+                    link.setAttribute("download", "참여_신청자_목록.csv");
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    this.showCustomModal('내보내기 완료', '참여 신청자 목록이 CSV 파일로 내보내졌습니다.');
+                } catch (error) {
+                    console.error("Error exporting to CSV:", error);
+                    this.showCustomModal('내보내기 실패', '오류가 발생했습니다: ' + error.message);
+                }
+            },
+
+            // Toggles the visibility of the car number input field
+            toggleCarNumber: function() {
+                document.getElementById('carNumberGroup').style.display = document.getElementById('useCar').checked ? 'block' : 'none';
+                if (!document.getElementById('useCar').checked) {
+                    document.getElementById('carNumber').value = ''; // Clear car number if checkbox is unchecked
+                }
+            },
+
+            // Formats phone number input
+            formatPhoneNumber: function(input) {
+                const value = input.value.replace(/\D/g, ""); // Remove non-digits
+                let formattedValue = '';
+                if (value.length > 10) {
+                    formattedValue = `${value.substring(0,3)}-${value.substring(3,7)}-${value.substring(7,11)}`;
+                } else if (value.length > 6) {
+                    formattedValue = `${value.substring(0,3)}-${value.substring(3,6)}-${value.substring(6,10)}`;
+                } else if (value.length > 3) {
+                    formattedValue = `${value.substring(0,3)}-${value.substring(3,6)}`;
+                } else {
+                    formattedValue = value;
+                }
+                input.value = formattedValue;
+            },
+            
+            // Formats car number input (removes special characters)
+            formatCarNumber: (input) => {
+                input.value = input.value.replace(/[^0-9ㄱ-ㅎㅏ-ㅣ가-힣]/g, ''); // Allow numbers and all Korean characters (Jamo and Syllables)
+            },
+
+            // Initializes sliders
+            setupSliders: function() {
+                this.updateSliderImages('slider1', 'dots1', []); // Initialize with empty array
+                this.updateSliderImages('slider2', 'dots2', []); // Initialize with empty array
+            },
+
+            // Updates slider content and dots based on image URLs
+            updateSliderImages: function(sliderId, dotsId, imageUrls) {
+                const slider = document.getElementById(sliderId);
+                const dotsContainer = document.getElementById(dotsId);
+                const prevBtn = document.getElementById(`${sliderId}-prev`);
+                const nextBtn = document.getElementById(`${sliderId}-next`);
+
+                slider.innerHTML = '';
+                dotsContainer.innerHTML = '';
+
+                // If no images are provided, show a default placeholder for 4 slides
+                const imagesToDisplay = imageUrls && imageUrls.length > 0 ? imageUrls : Array(4).fill(null);
+                
+                imagesToDisplay.forEach((url, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = 'slide';
+                    if (url) {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.alt = `Slide ${index + 1}`;
+                        img.onerror = () => {
+                            img.src = `https://placehold.co/400x400/eeeeee/333333?text=Image+Not+Found`;
+                            img.alt = `Image Not Found ${index + 1}`;
+                        };
+                        slide.appendChild(img);
+                    } else {
+                        const placeholderText = sliderId === 'slider1' ? '뮤지컬 공연 이미지' : '쌀 나눔 이미지';
+                        slide.innerHTML = `<div class="slide-placeholder">🖼️ ${placeholderText} ${index + 1}</div>`;
+                    }
+                    slider.appendChild(slide);
+
+                    // Only add dots if actual images are provided
+                    if (imageUrls && imageUrls.length > 1) { // Only show dots if there's more than one image
+                        const dot = document.createElement('span');
+                        dot.className = 'dot';
+                        dot.onclick = () => this.goToSlide(sliderId, index);
+                        dotsContainer.appendChild(dot);
+                    }
+                });
+
+                this.maxSlides[sliderId] = imageUrls ? imageUrls.length : 0;
+                this.currentSlide[sliderId] = 0;
+                this.updateSlider(sliderId, dotsId);
+
+                // Disable/enable slider buttons
+                if (prevBtn && nextBtn) {
+                    if (this.maxSlides[sliderId] <= 1) {
+                        prevBtn.disabled = true;
+                        nextBtn.disabled = true;
+                    } else {
+                        prevBtn.disabled = false;
+                        nextBtn.disabled = false;
+                    }
+                }
+            },
+
+            // Updates the visible slide and active dot
+            updateSlider: function(sliderId, dotsId) {
+                const slider = document.getElementById(sliderId);
+                if (!slider || this.maxSlides[sliderId] === 0) {
+                    slider.style.transform = `translateX(0%)`;
+                    return;
+                }
+                slider.style.transform = `translateX(${-this.currentSlide[sliderId] * 100}%)`;
+                const dots = document.getElementById(dotsId).children;
+                Array.from(dots).forEach((dot, i) => dot.classList.toggle('active', i === this.currentSlide[sliderId]));
+            },
+
+            // Moves to the next slide
+            nextSlide: function(sliderId) {
+                if (this.maxSlides[sliderId] <= 1) return;
+                this.currentSlide[sliderId] = (this.currentSlide[sliderId] + 1) % this.maxSlides[sliderId];
+                this.updateSlider(sliderId, sliderId === 'slider1' ? 'dots1' : 'dots2');
+            },
+
+            // Moves to the previous slide
+            prevSlide: function(sliderId) {
+                if (this.maxSlides[sliderId] <= 1) return;
+                this.currentSlide[sliderId] = (this.currentSlide[sliderId] - 1 + this.maxSlides[sliderId]) % this.maxSlides[sliderId];
+                this.updateSlider(sliderId, sliderId === 'slider1' ? 'dots1' : 'dots2');
+            },
+
+            // Moves to a specific slide by index
+            goToSlide: function(sliderId, index) {
+                if (this.maxSlides[sliderId] <= 1) return;
+                this.currentSlide[sliderId] = index;
+                this.updateSlider(sliderId, sliderId === 'slider1' ? 'dots1' : 'dots2');
+            },
+
+        };
+
+        window.app = app; // Expose app object globally
+        window.onload = () => app.init(); // Initialize app on window load
+    </script>
+</body>
+</html>
